@@ -1,0 +1,249 @@
+Descritpion for project:-
+
+
+Login Page detail
+Description:
+
+The code is for a basic Java login and registration system. It is designed to allow users to log in with their credentials 
+or register as new users. Here's a breakdown of the key components and functionality in the code:
+
+
+1)GUI Components: The code uses the Swing library to create a graphical user interface (GUI) with text fields, labels, buttons
+ and error message labels for the login and registration forms.
+
+2)Database Connection: The code establishes a connection to a PostgreSQL database, 
+where user credentials are stored. It creates a "users" table with columns for email and password, ensuring that the 
+table exists if it doesn't already.
+
+3)Registration: Users can register by providing their email and a password. The code includes password validation logic to ensure the 
+password meets certain requirements, such as a minimum length, the presence of at least one capital letter, and at least one numeric digit. 
+After successful registration, the user is informed.
+
+4)Login: Users can log in by entering their email and password. The code checks the entered credentials against the database and 
+grants access if they match. A successful login message is displayed, and the user can proceed to other parts of the program.
+
+5)Navigation: After a successful login, the code appears to initiate other parts of the program, such as 
+creating instances of bill2 and challan classes.
+
+6)Event Handling: The code implements the ActionListener interface to handle button clicks. It distinguishes between the 
+"New-register" and "login" buttons to switch between the registration and login forms.
+
+Error Handling: The code includes error handling for database operations and displays error messages when necessary.
+
+
+challan page detail
+Description:
+1) Swing GUI Elements: The code utilizes Java Swing to create a graphical user interface (GUI) for the invoice generation.
+
+2) Static Variables: Various static variables are defined, including labels, text fields, and connection objects.
+
+3) Main Method: The main method creates an instance of the challan2 class and calls the taxinvoice method to generate the invoice.
+
+4) Invoice Information: The invoice includes company name, GSTIN, manufacturing details, address, and the current date.
+
+
+5) Document Number: The tax invoice number is generated and displayed on the invoice.
+
+6) Party Name and Address:  The party's name and address are set, which are then displayed on the invoice.
+
+7) HSN Code and Description: The HSN (Harmonized System of Nomenclature) code and description for the product are displayed on the invoice.
+
+8) Quantity, Rate, and Amount: Information about the quantity, rate per meter, and the total amount for the product is displayed.
+
+9) GST (Goods and Services Tax):The GST information is displayed on the invoice. Depending on whether the GSTIN starts with "27," 
+either SGST (State Goods and Services Tax) and CGST (Central Goods and Services Tax) or IGST (Integrated Goods and Services Tax)
+ values are set and displayed.
+
+10. Continue Button: A "Continue" button is provided to proceed with generating the invoice in PDF format.
+
+11. PDF Generation: The code has a taxinvoicetopdf method that appears to be a stub for generating the invoice as a PDF, 
+but it is currently empty.
+
+12. Action Listener: The class implements an ActionListener to respond to button clicks, specifically, when the "Continue" button is clicked.
+
+Bill page detail
+Description:
+It's is an application for generating a tax invoice. It allows users to input various details related to a transaction, 
+such as the number of pieces, meterage, rate, deductions, GST (Goods and Services Tax), and HSN (Harmonized System Nomenclature) code. 
+The application retrieves additional information from a PostgreSQL database, including the 
+GSTIN (Goods and Services Tax Identification Number) 
+and product description, based on the provided GSTIN and HSN code.
+
+
+1)User Interface: The user interface is created using Java Swing, with labels, text fields, and a "Submit" button. Users can input details 
+such as the number of pieces, meterage, rate, deductions, GST percentage, GSTIN, HSN code, and a document number.
+
+2)Database Connection: The code establishes a connection to a PostgreSQL database to retrieve additional information based on 
+the provided GSTIN and HSN code.
+
+3)Data Validation: User input is validated, and error messages are displayed if any fields are empty or contain invalid data.
+
+4)Database Queries: The code queries the database to fetch the company's address details and product description using the 
+provided GSTIN and HSN code, respectively.
+
+5)Calculations: The application performs calculations to determine the total cost (before and after deductions),
+ GST amount, and the final total amount to be displayed on the tax invoice.
+
+
+6)Tax Invoice Generation: Once all information is collected and calculated, a tax invoice is generated and displayed using the challan2 class.
+
+7)Integrated Classes: The challan2 class is used for creating and displaying the tax invoice. It receives input values and displays 
+them in a structured format.
+
+8)Functionality: Users can enter transaction details, retrieve company address, and product descriptions, and generate a tax invoice.
+The code handles different GST scenarios, including both CGST and SGST for intrastate transactions and IGST for interstate transactions.
+
+
+Pdf page detail
+Description:
+1)Imports: The code imports various packages to work with graphical user interfaces (Swing), PDF manipulation (iText PDF library), 
+and working with files and dates.
+
+2)Static Variables: The code defines several static variables to store data related to a tax invoice. 
+These include information like name, GSTIN, address, HSN code, and description, document number, pieces, quantity, rates, and 
+various total values. It also stores the current date.
+
+3)setData Method:This method is used to set data into the static variables. It takes parameters such as GSTIN, name, address, HSN code, etc. 
+and assigns these values to the corresponding static variables. It also prints the data for verification.
+
+4)main Method:The main method is the entry point of the program.
+It defines input and output PDF file paths.
+It reads an existing PDF file (inputFile), adds content to it (company name and date), and saves it as a new PDF file (outputFile).
+The method also uses the openPdf function to open the generated PDF file using the default system application.
+setPdf Method:
+
+This method is responsible for creating a new PDF document with additional information based on the GSTIN prefix.
+If the GSTIN starts with "27," it uses one PDF template; otherwise, it uses another template. It adds the company name, GST number, and address to the PDF.
+The openPdf function is used to open the generated PDF file.
+openPdf Method:
+
+This method opens a PDF file with the default system application using the Desktop class. It takes the file path as a parameter.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------Variable details---------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------- 
+All Variable detail used in project
+meter4: A variable meant to store values related to meters, typically used for measurements or quantities.
+
+rate4: Used to represent rates, presumably before any deductions or calculations are applied.
+
+btotal: A variable designed to hold the result of multiplying meter4 by rate4, serving as a new variable for calculations.
+
+watao4: Intended for deductions from btotal when required.
+
+win: Likely used to store the value of watao4 in rupees.
+
+totngst: Represents the total after considering deductions such as watao4 and "hammali" (a term not defined in the provided description). 
+It does not include GST (Goods and Services Tax) calculations.
+
+rate4 (again): Indicates that the variable rate4 might be updated or used in a different context after deductions.
+
+comp_name: A variable to store the name of the company.
+
+manufactures: Intended for storing manufacturer details, possibly referring to products or items manufactured by the company.
+
+currdate: Stores the current date, likely for timestamping or record-keeping purposes.
+
+name: Used in a challan (invoice) for storing the party's name. The address is expected to be placed just below this variable, 
+as both are stored in the same string.
+
+addr: A variable for storing the address, likely associated with the party's details.
+
+addressStrored: Probably a typographical error, should be corrected to "addressStored," and it is intended to store just the address portion of party details.
+
+nam_add: A variable meant to store combined party name and address, as they are stored in the same string.
+
+gstin4: For storing the GSTIN (Goods and Services Tax Identification Number), often required for business transactions.
+
+addressErrorLabel & descriptionErrorLabel: These variables may be used for handling issues related to conditional statements, such as displaying error messages when specific conditions are not met.
+
+Double.isNaN(): A method used to check whether a number is non-numeric or null. It is commonly employed to ensure data integrity and prevent errors in numerical calculations.
+
+docno: Used in a challan for storing the document number (possibly a reference to invoices or documents associated with business transactions).
+
+pcs: A variable used for storing the number of pieces, potentially related to quantities in specific contexts.
+
+crate1 & ccrate2: These variables may be used in a "challan2" for handling errors. The specific nature of these errors or their usage is not detailed in the provided description.
+
+quty4 & quty5: Likely used in "challan2" for representing quantities in meters, possibly for inventory or transaction records.
+
+ comp_name:Type: JLabel
+Description: A label displaying the name of the company on the invoice.
+
+comp_gstin:
+Type: JLabel
+Description: A label displaying the GSTIN (Goods and Services Tax Identification Number) of the company on the invoice.
+
+manu:
+Type: JLabel
+Description: A label displaying the manufacturing details of the company on the invoice.
+
+comp_add:
+Type: JLabel
+Description: A label displaying the company's address on the invoice.
+
+currdate1:
+Type: JLabel
+Description: A label displaying "DATE:" on the invoice.
+
+currdate3:
+Type: JLabel
+Description: A label displaying the current date on the invoice.
+
+doc_no5:
+Type: JLabel
+Description: A label displaying the tax invoice number on the invoice.
+
+name:
+Type: JLabel
+Description: A label displaying "Name:" on the invoice.
+
+addr:
+Type: JLabel
+Description: A label displaying "Address:" on the invoice.
+
+nam_add:
+Type: JLabel
+Description: A label that combines the party's name and address to display on the invoice.
+
+gstin4:
+- Type: JLabel
+- Description: A label displaying "GSTIN:" on the invoice.
+
+gstin5:
+- Type: JLabel
+- Description: A label displaying the GSTIN of the party on the invoice.
+
+description4:
+- Type: JLabel
+- Description: A label displaying "DESCRIPTION" on the invoice.
+
+description5:
+- Type: JLabel
+- Description: A label displaying the HSN (Harmonized System of Nomenclature) code and description of the product on the invoice.
+
+hsnCode4:
+- Type: JLabel
+- Description: A label displaying "HSN Code" on the invoice.
+
+hsnCode5:
+- Type: JLabel
+- Description: A label displaying the HSN code of the product on the invoice.
+
+pieces4:
+- Type: JLabel
+- Description: A label displaying "No. of pcs" on the invoice.
+
+pieces5:
+- Type: JLabel
+- Description: A label displaying the number of pieces on the invoice.
+
+quty4:
+- Type: JLabel
+- Description: A label displaying "Quantity (mtr)" on the invoice.
+
+quty5:
+- Type: JLabel
+- Description: A label displaying the quantity in meters on the invoice.
